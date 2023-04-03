@@ -1,5 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
+import Script from "next/script";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -44,7 +45,6 @@ export default function Home() {
     <>
       <Head>
         <title>Check out page</title>
-        <script src="https://checkout.razorpay.com/v1/checkout.js" />
       </Head>
       <button onClick={handlePayClick} disabled={isLoading}>
         {!isLoading ? "pay Rs. 499" : "Loading..."}
@@ -55,6 +55,8 @@ export default function Home() {
         pauseOnFocusLoss={false}
         autoClose={2500}
       />
+
+      <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
     </>
   );
 }
